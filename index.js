@@ -17,7 +17,7 @@ const posts = [
         comment: "i'm feelin a bit stressed tbh",
         likes: 4
     },
-        {
+    {
         name: "Joseph Ducreux",
         username: "jd1735",
         location: "Paris, France",
@@ -28,3 +28,33 @@ const posts = [
     }
 ]
 
+let containerId = document.getElementById("whatever")
+
+for (i = 0; i < 3; i++) {
+    let profileHTML = `
+    <section id="profile">
+    <div class="profile">
+        <img class="profile-img" src="${posts[i].avatar}" />
+        <p class="username"> ${posts[i].name} </p>
+        <p class="post-location"> ${posts[i].location} </p>
+        <img class="post-img" src="${posts[i].post}" />
+    </div>
+    </section>
+
+`
+
+    let footerHTML = `
+    <footer id="footer">
+    <div class="icons-container">
+        <img class="icon icon-like" src="images/icon-heart.png" alt="like icon">
+        <img class="icon icon-comment" src="images/icon-comment.png" alt="comment icon">
+        <img class="icon icon-dm" src="images/icon-dm.png" alt="share icon">
+        <p class="footer-text like-text"> ${posts[i].likes} likes </p>
+        <p class="footer-text comment-text"> ${posts[i].username} ${posts[i].comment} </p>
+    </div>
+    </footer>
+    <hr />
+`
+    containerId.innerHTML += profileHTML + footerHTML 
+
+}
